@@ -1,0 +1,14 @@
+
+1. Install it with asdf-install or using symlink to .asd file.
+
+2. Also you have to install JDK to be able to run local matches
+
+3. Write your bot instead of random one in "MyBot.lisp".
+
+4. Build an executable: simply run "./my-bot" in the directory with .asd)
+
+5. Test it locally against one of the example bots: "./run-match DualBot" (or any other bot in example_bots)
+
+6. For running MyBot at the server the code should be slightly modified
+
+7. I'm not sure if common-lisp bot is able to be run at the server just now, but soon it will be
