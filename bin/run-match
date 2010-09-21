@@ -1,6 +1,7 @@
 #!/bin/sh
 
 enemy_bot=$1
+map=$2
 
-java -jar tools/PlayGame.jar maps/map7.txt 1000 1000 game.log \
+java -jar tools/PlayGame.jar maps/map$map.txt 1000 1000 game.log \
     "./MyBot" "java -jar example_bots/$enemy_bot.jar" | java -jar tools/ShowGame.jar

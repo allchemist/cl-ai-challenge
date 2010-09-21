@@ -1,4 +1,44 @@
-(in-package :planet-wars)
+(defpackage :pwbot
+    (:use :common-lisp :split-sequence)
+  (:export :play :main))
+
+(in-package :pwbot)
+
+;; model
+
+;; This code was taken from Gabor Melis' starter-pack
+
+(defstruct (%ships (:conc-name ""))
+  owner
+  n-ships)
+
+(defstruct (planet (:include %ships) (:conc-name ""))
+  id
+  x
+  y
+  growth)
+
+(defstruct (fleet (:include %ships) (:conc-name ""))
+  source
+  destination
+  n-total-turns
+  n-remaining-turns)
+
+(defstruct (game (:conc-name ""))
+  planets
+  fleets)
+
+(defstruct order
+  source
+  destination
+  n-ships)
+
+(defun planet-id (obj)
+  (if (planet-p obj)
+      (id obj)
+      obj))
+
+;; I/O
 
 ;; This code was taken from Gabor Melis' starter-pack
 ;; with slight modifications
@@ -80,3 +120,31 @@
   (map nil (lambda (order)
              (write-order order stream))
        orders))
+
+;; utils
+
+(defun random-elt (sequence)
+  (if (> (length sequence) 0)
+      (elt sequence (random (length sequence)))
+      nil))
+
+(defun enemy-planet-p (planet)
+  (> (owner planet) 1))
+
+(defun own-planet-p (planet)
+  (= (owner planet) 1))
+
+(defun neutral-planet-p (planet)
+  (= (owner planet) 0))
+
+(defun enemy-planets (game)
+  (remove-if-not #'enemy-planet-p (planets game)))
+
+(defun own-planets (game)
+  (remove-if-not #'own-planet-p (planets game)))
+
+(defun neutral-planets (game)
+  (remove-if-not #'neutral-planet-p (planets game)))
+
+(defun other-planets (game)
+  (remove-if #'own-planet-p (planets game)))

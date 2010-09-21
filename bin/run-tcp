@@ -1,0 +1,2 @@
+#!/bin/sh
+bin/tcp 72.44.46.68 995 allchemist -p allchemistforchalleng ./MyBot

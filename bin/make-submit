@@ -1,0 +1,3 @@
+#!/bin/sh
+
+zip -r entry.zip MyBot.lisp split-sequence.lisp planet-wars.lisp

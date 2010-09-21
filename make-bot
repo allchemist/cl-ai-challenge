@@ -1,7 +1,0 @@
-#!/bin/sh
-
-`which sbcl` \
-    --dynamic-space-size 128 --noinform --lose-on-corruption \
-    --end-runtime-options \
-    --noprint --no-userinit --no-sysinit --disable-debugger \
-    --load MyBot.lisp

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+`which sbcl` \
+    --dynamic-space-size 512 --noinform --lose-on-corruption \
+    --end-runtime-options \
+    --noprint --no-userinit --no-sysinit --disable-debugger \
+    --load "MyBot.lisp" \
+    --eval "(save-lisp-and-die \"MyBot\" :executable t :toplevel #'pwbot::main)"
