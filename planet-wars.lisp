@@ -128,6 +128,8 @@
       (elt sequence (random (length sequence)))
       nil))
 
+;; planets
+
 (defun enemy-planet-p (planet)
   (> (owner planet) 1))
 
@@ -148,3 +150,17 @@
 
 (defun other-planets (game)
   (remove-if #'own-planet-p (planets game)))
+
+;; fleets
+
+(defun enemy-fleet-p (fleet)
+  (> (owner fleet) 1))
+
+(defun own-fleet-p (fleet)
+  (= (owner fleet) 1))
+
+(defun enemy-fleets (game)
+  (remove-if-not #'enemy-fleet-p (fleets game)))
+
+(defun own-fleets (game)
+  (remove-if-not #'own-fleet-p (fleets game)))

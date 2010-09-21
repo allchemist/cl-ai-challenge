@@ -35,30 +35,20 @@
 (defun scal (list const)
   (mapcar #'(lambda (l) (* l const)) list))
 
+;; here the bot code should be
+
+(load "bot1")
+
+;; here the bot code ends
+
+;; main
+
 (defun play (&key (input *standard-input*) (output *standard-output*))
   (loop while (peek-char nil input nil nil)
 	for turn from 1
 	do (let ((game (read-game input)))
 	     (write-orders (compute-orders game) output)
 	     (write-line "go" output))))
-
-
-;; here the bot code should be
-
-; zero order
-(defun compute-orders (game)
-  (declare (ignore game))
-;
-;  (list
-;   (make-order :source source
-;	       :destination dest
-;	       :n-ships n-ships))))))
-)
-
-
-;; here the bot code ends
-
-;; main
 
 (defun main ()
   (let ((*random-state* (make-random-state t)))
