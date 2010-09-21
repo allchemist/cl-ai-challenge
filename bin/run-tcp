@@ -1,2 +1,3 @@
 #!/bin/sh
-bin/tcp 72.44.46.68 995 allchemist -p allchemistforchalleng ./MyBot
+bot=$1
+bin/tcp 72.44.46.68 995 allchemist1 -p passwd1 $bot
