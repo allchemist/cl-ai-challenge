@@ -1,0 +1,13 @@
+
+This code is under MIT licence.
+Some code was taken from Ole Arndt's package: http://github.com/anwyn/planetwars, which is under Mit licence
+
+1. Write your bot instead of random one in "MyBot.lisp".
+
+2. Build an executable: simply run "make MyBot"
+
+3. Test it locally against one of the example bots: "./run-match DualBot 7" (or any other bot in example_bots and any other map number)
+
+4. Server is not able now to run lisp code, watch messages at the forum.
+
+5. Instead of it you can use an alternative server: 72.44.46.68
